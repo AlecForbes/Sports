@@ -6,7 +6,7 @@ const seasonResults = [
         canucksScore: 4,
         opponentTeam: "Oilers",
         opponentScore: 3,
-        canucksWin: true,
+        canucksWin: null,
     },
     {
         gameDate: "2026-01-17",
@@ -14,7 +14,7 @@ const seasonResults = [
         canucksScore: 2,
         opponentTeam: "Maple Leafs",
         opponentScore: 5,
-        canucksWin: false,
+        canucksWin: null,
     },
     {
         gameDate: "2026-02-02",
@@ -22,7 +22,7 @@ const seasonResults = [
         canucksScore: 3,
         opponentTeam: "Flames",
         opponentScore: 2,
-        canucksWin: true,
+        canucksWin: null,
     },
     {
         gameDate: "2026-02-10",
@@ -30,16 +30,24 @@ const seasonResults = [
         canucksScore: 0,
         opponentTeam: "Canadiens",
         opponentScore: 2,
-        canucksWin: false,
+        canucksWin: null,
     },
 ];
 
 const resultsTable = document.querySelector('#season-results-table');
 
+function calcWinner(gameData) {
+    if (gameData.canucksScore > gameData.opponentScore) {
+        return gameData.canucksWin = true;
+    } else {
+        return gameData.canucksWin = false;
+    }
+}
+
 function createResultsRow(gameData) {
     const winOrLose = gameData.canucksWin ? "canucks-ftw" : "canucks-lose";
     const resultRow = `
-    <tr>
+    <tr class="${winOrLose}">
         <td>${gameData.gameDate}</td>
         <td>${gameData.gameLocation}</td>
         <td>${gameData.canucksScore}</td>
@@ -59,5 +67,5 @@ function showAllResults(resultList){
 }
 
 
-
-showAllResults(seasonResults)
+seasonResults.forEach(calcWinner);
+showAllResults(seasonResults);

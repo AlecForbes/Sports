@@ -34,24 +34,31 @@ thead {
 .canucks-lose{
     color: #f11c1c;
     font-weight: bold;
-    
+
 }
 th, td {
     padding: 12px;
-    border: 1px solid #8bbe2a;
+    border: 1px solid #ffffff3a;
     text-align: center;
 }
 
 th {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4d01ff;
+    color: rgba(255, 255, 255, 0.151);
 }
 
 td:nth-child(even) {
-    background-color: #4cc228;
+    background-color: #ffffff23;
 }
 
 tr:hover {
     background-color: #f11c1c;
+}
+
+caption {
+    caption-side: top;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
 }
 
