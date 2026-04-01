@@ -32,6 +32,46 @@ const seasonResults = [
         opponentScore: 2,
         canucksWin: null,
     },
+    {
+        gameDate: "2026-02-18",
+        gameLocation: "Rogers Arena",
+        canucksScore: 5,
+        opponentTeam: "Bruins",
+        opponentScore: 4,
+        canucksWin: null,
+    },
+    {
+        gameDate: "2026-02-25",
+        gameLocation: "Scotiabank Arena",
+        canucksScore: 1,
+        opponentTeam: "Rangers",
+        opponentScore: 2,
+        canucksWin: null,
+    },
+    {
+        gameDate: "2026-03-03",
+        gameLocation: "Rogers Arena",
+        canucksScore: 4,
+        opponentTeam: "Hurricanes",
+        opponentScore: 1,
+        canucksWin: null,
+    },
+    {
+        gameDate: "2026-03-12",
+        gameLocation: "Canadian Tire Centre",
+        canucksScore: 2,
+        opponentTeam: "Senators",
+        opponentScore: 6,
+        canucksWin: null,
+    },
+    {
+        gameDate: "2026-03-20",
+        gameLocation: "American Airlines Center",
+        canucksScore: 3,
+        opponentTeam: "Stars",
+        opponentScore: 2,
+        canucksWin: null
+    }
 ];
 
 const resultsTable = document.querySelector('#season-results-table');
@@ -58,14 +98,18 @@ function createResultsRow(gameData) {
     return resultRow;
 }
 
-function showAllResults(resultList){
-    for (result of resultList){
+function showAllResults(resultList) {
+    for (result of resultList) {
         const currentRow = createResultsRow(result)
         console.log(currentRow)
         resultsTable.innerHTML += currentRow
     }
 }
 
-
 seasonResults.forEach(calcWinner);
+//loop through each game result and calculate the winner
+for (result of seasonResults) {//loop through each game result and calculate the winner
+    result.calcWinner = calcWinner(result);
+}
 showAllResults(seasonResults);
+

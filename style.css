@@ -52,7 +52,8 @@ td:nth-child(even) {
 }
 
 tr:hover {
-    background-color: #f11c1c;
+    background-color: #1cb5f177;
+    opacity: 0.8;
 }
 
 caption {
