@@ -37,13 +37,15 @@ const seasonResults = [
 const resultsTable = document.querySelector('#season-results-table');
 
 function createResultsRow(gameData) {
+    const winOrLose = gameData.canucksWin ? "canucks-ftw" : "canucks-lose";
     const resultRow = `
     <tr>
         <td>${gameData.gameDate}</td>
         <td>${gameData.gameLocation}</td>
         <td>${gameData.canucksScore}</td>
-        <td></td>
-        <td></td>
+        <td>${gameData.opponentTeam}</td>
+        <td>${gameData.opponentScore}</td>
+        <td>${gameData.canucksWin}</td>
     </tr>`
     return resultRow;
 }
@@ -55,5 +57,7 @@ function showAllResults(resultList){
         resultsTable.innerHTML += currentRow
     }
 }
+
+
 
 showAllResults(seasonResults)
