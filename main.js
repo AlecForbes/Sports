@@ -52,6 +52,7 @@ function showAllResults(resultList){
     for (result of resultList){
         const currentRow = createResultsRow(result)
         console.log(currentRow)
+        resultsTable.innerHTML += currentRow
     }
 }
 
